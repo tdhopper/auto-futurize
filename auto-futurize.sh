@@ -1,11 +1,18 @@
 #!/bin/bash
 set -ex
 
+########################################
+########################################
+########## USER CONFIGURATION ##########
+
 PYTHON2_TEST_COMMAND="tox -e py27"
 PYTHON3_TEST_COMMAND="tox -e py36"
 FUTURIZE_PATH=./.tox/py36/bin/futurize
 CODE_DIRECTORIES="./project/ ./tests/"
 BRANCH_NAME=py2-3-compatibility
+
+########################################
+########################################
 
 git checkout $BRANCH_NAME || git co -b $BRANCH_NAME
 $PYTHON2_TEST_COMMAND
