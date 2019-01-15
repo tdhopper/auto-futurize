@@ -29,6 +29,7 @@ for fix in "${STAGE1_FIXES[@]}"; do
         fi
     fi
 done
+git tag -a py2-modernized -m"Python 2 code is modernized"
 
 # Do stage 2 futurize migration ("Take modernized (stage1) code and
 # add a dependency on ``future`` to provide Py3 compatibility.")
@@ -48,3 +49,4 @@ for fix in "${STAGE2_FIXES[@]}"; do
 done
 
 $PYTHON3_TEST_COMMAND
+git tag -a py3-compatible -m"Tests pass in Python 2 and 3"
