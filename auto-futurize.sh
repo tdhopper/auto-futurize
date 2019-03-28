@@ -25,7 +25,7 @@ STAGE2_FIXES=(lib2to3.fixes.fix_dict lib2to3.fixes.fix_filter lib2to3.fixes.fix_
 
 for fix in "${STAGE1_FIXES[@]}"; do
     echo "Attempting $fix"
-    $FUTURIZE_PATH --stage2 --write --fix "$fix" $CODE_DIRECTORIES
+    $FUTURIZE_PATH --stage1 --write --fix "$fix" $CODE_DIRECTORIES
     if [[ $(git diff --stat) != '' ]]; then
         if $PYTHON2_TEST_COMMAND
         then
